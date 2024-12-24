@@ -56,11 +56,11 @@ Before building image, you need to make changes in some files.
 sudo vi index.html
 ```
 
-const response = await fetch('http://**192.168.194.52**:3000/get-profile');
+const response = await fetch('http://**localhost**:3000/get-profile');
 
-const response = await fetch('http://**192.168.194.52**:3000/update-profile',
+const response = await fetch('http://**localhost**:3000/update-profile',
 
-**Change these ip values with your host machine ip in your index.html file when you clone this repo**
+**IMP Note:-** Change these localhost field with your host machine ip in your index.html file when you clone this repo
 
 
 Step 1: Create docker image for nodeJS backend
