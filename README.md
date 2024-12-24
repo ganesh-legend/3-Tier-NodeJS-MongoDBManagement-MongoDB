@@ -52,6 +52,17 @@ Step 3: create `user-accounts` and `my-db` databases in mongo-express. _(graphic
 
 Before building image, you need to make changes in some files.
 
+1) server.js file
+
+```bash
+sudo vi server.js
+```
+
+let mongoUrlLocal = "mongodb://admin:password@**localhost**:27017";
+let mongoUrlDocker = "mongodb://admin:password@**host.docker.internal**:27017";
+
+**Changes:-** Change these **localhost** and **host.docker.internal** with **mongodb** (name of the mongo container).
+
 ```bash
 sudo vi index.html
 ```
@@ -60,7 +71,7 @@ const response = await fetch('http://**localhost**:3000/get-profile');
 
 const response = await fetch('http://**localhost**:3000/update-profile',
 
-**IMP Note:-** Change these localhost field with your host machine ip in your index.html file when you clone this repo
+**Changes:-** Change these **localhost field** with your **host machine ip** in your index.html file when you clone this repo
 
 
 Step 1: Create docker image for nodeJS backend
