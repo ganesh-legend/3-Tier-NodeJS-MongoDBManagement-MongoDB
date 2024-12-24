@@ -46,24 +46,60 @@ http://host-ip:8081
 
 Step 3: create `user-accounts` and `my-db` databases in mongo-express. _(graphically you do this)_
 
+#
+
 ##### Creating node(backend) container to establish connection with mongodb database
+
+Before building image, you need to make changes in some files.
+
+```bash
+sudo vi index.html
+```
+
+const response = await fetch('http://**192.168.194.52**:3000/get-profile');
+
+const response = await fetch('http://**192.168.194.52**:3000/update-profile',
+
+**Change these ip values with your host machine ip in your index.html file when you clone this repo**
+
 
 Step 1: Create docker image for nodeJS backend
 
-Go to 
+Go to 3-Tier-NodeJS-MongoDBManagement-MongoDB location
+
+```bash
+cd 3-Tier-NodeJS-MongoDBManagement-MongoDB
+```
+
+Create docker image
+
+```bash
+docker build . -t sample-node-app
+```
+
+Step 2: Deploy to container
+
+```bash
+docker run -d -p 3000:3000 --name sample-node-app --net mongo-network sample-node-app:latest
+```
+
 #
 
 ### Optional
 ##### Starting application locally _(Don't use this method, deploy with container)_
 Start your nodejs application locally - go to `app` directory of project 
 
-    cd app
-    npm install 
-    node server.js
+```bash
+cd 3-Tier-NodeJS-MongoDBManagement-MongoDB/app
+npm install 
+node server.js
+```
     
 Access you nodejs application UI from browser
 
-    http://localhost:3000 or http://host-ip:3000
+```bash
+http://host-ip:3000
+```
 
 #
 #
